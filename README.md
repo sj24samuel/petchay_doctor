@@ -115,7 +115,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo 📑
    ```sh
-   git clone https://github.com/lightdarkmaster/petchay_doctor
+   git clone https://github.com/sj24samuel/petchay_doctor.git
    ```
 2. Install flutter dependencies 💻
    ```flutter pub get
@@ -142,7 +142,7 @@ This is an example of how to list things you need to use the software and how to
 
 3. Explore different pages.
 
-_For more examples, please refer to the [Documentation](https://example.com)_📑📋
+_For more examples, please refer to the [Documentation](https://flutter.dev/)_📑📋
 
 <p align="right">(<a href="#readme-top">⬆️ back to top ⬆️ </a>)</p>
 
