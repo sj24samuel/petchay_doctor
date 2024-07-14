@@ -41,8 +41,8 @@ samples, guidance on mobile development, and a full API reference.
 
 # 🎊🎉🎊🎉🎊 W E L C O M E ! ! 🎊🎉🎊🎉🎊
 
-petchay doctor AI Mobile Application
-> By: Christian Barbosa BSIT - Leyte Normal University (LNU)
+Pechay Doctor AI Mobile Application
+> By: Team Zionist - Leyte Normal University (LNU)
 
 <!-- >> git log: 08d454faae3add1386e9caf47f5795886aea3034 -->
 > <br/>
