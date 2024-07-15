@@ -1,5 +1,5 @@
 Alternaria_Leaf_Spot
 Bacterial_Spot
-Healthy_Petchay
 Downy_Mildew
+Healthy_Petchay
 Undefined
