@@ -1,4 +1,5 @@
 Alternaria_Leaf_Spot
 Bacterial_Spot
+Downy_Mildew
 Healthy_Petchay
 Undefined
