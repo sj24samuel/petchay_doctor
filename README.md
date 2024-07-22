@@ -150,8 +150,8 @@ _For more examples, please refer to the [Documentation](https://flutter.dev/)_�
 
 ## Application Features 💼
 
-- [x] Homepage
-  - [x] App Descriptions
+- [ ] Homepage
+  - [ ] App Descriptions
 - [ ] Petchay Doctor
   - [ ] Detect Petchay Disease
   - [ ] Provide Recommendations
@@ -168,7 +168,7 @@ _For more examples, please refer to the [Documentation](https://flutter.dev/)_�
   - [ ] About
   - [ ] Sign out
 
-See the 👀 [open issues](https://github.com/lightdarkmaster/petchay_doctor/issues/1) for a full list of proposed features (and known issues).
+See the 👀 [open issues](https://github.com/sj24samuel/petchay_doctor/tree/master) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">⬆️ back to top ⬆️ </a>)</p>
 
@@ -189,6 +189,12 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">⬆️ back to top ⬆️ </a>)</p>
 
+
+
+## Existing Issues
+1. Scanner Problem connection to the Model
+2. Update FAQ
+3. Add Details for the AboutUS
 
 
 # - - - - - - - N O T H I N G - - - -  F O L L O W S - - - - - - -

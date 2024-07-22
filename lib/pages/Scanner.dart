@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tflite/tflite.dart';
+import 'package:tflite_flutter/tflite_flutter.dart';
 import 'dart:async';
 import 'dart:io';
-
-
+import 'dart:typed_data';
+import 'package:image/image.dart' as img;
 
 class ScannerPage extends StatefulWidget {
   const ScannerPage({Key? key}) : super(key: key);
@@ -19,6 +18,7 @@ class _CameraWidgetState extends State<ScannerPage> {
   XFile? _pickedImage;
   List<dynamic>? _recognitions1;
   bool _isLoading = false;
+  late Interpreter _interpreter;
 
   @override
   void initState() {
@@ -27,13 +27,13 @@ class _CameraWidgetState extends State<ScannerPage> {
     _initializeTflite();
   }
 
-  
   Future<void> _initializeTflite() async {
     // Load the model and labels
-    await Tflite.loadModel(
-      model: "assets/bokchoymodel.tflite",
-      labels: "assets/petchay_labels.txt",
-    );
+    try {
+      _interpreter = await Interpreter.fromAsset('assets/bokchoymodel.tflite');
+    } catch (e) {
+      print("Error loading model: $e");
+    }
   }
 
   Future<void> _pickImageFromGallery() async {
@@ -64,19 +64,51 @@ class _CameraWidgetState extends State<ScannerPage> {
     }
   }
 
-  Future<void> _processImage() async {
+   Future<void> _processImage() async {
     if (_pickedImage != null) {
-      final List<dynamic>? recognitions1 = await Tflite.runModelOnImage(
-        path: _pickedImage!.path,
-        numResults: 5,
-        threshold: 0.5,
-      );
-      // Update the recognitions
+      final inputImage = File(_pickedImage!.path).readAsBytesSync();
+      final input = _preprocess(inputImage);
+
+      var output = List.filled(1 * 5, 1.1).reshape([1, 5]);
+      _interpreter.run(input, output); 
+
       setState(() {
-        _recognitions1 = recognitions1;
+       // _recognitions1 = _postprocess(output);
         _isLoading = false;
       });
     }
+  }
+
+  List<List<double>> _preprocess(Uint8List inputImage) {
+    // Preprocessing logic (e.g., resizing, normalization)
+    // Convert the image to a format suitable for the model
+    // Here you should resize and normalize the image as per your model requirements
+    img.Image image = img.decodeImage(inputImage)!;
+    img.Image resizedImage = img.copyResize(image, width: 224, height: 224);
+    List<List<double>> input = List.generate(224, (_) => List.filled(224, 0.0));
+    for (int i = 0; i < 224; i++) {
+      for (int j = 0; j < 224; j++) {
+        //final pixel = resizedImage.getPixel(i, j);
+        input[i][j] = [255.0,255.0,255.0] as double;
+      }
+    }
+    return input;
+  }
+
+  List<dynamic> _postprocess(List<List<double>> output) {
+    // Postprocessing logic to convert output to readable format
+    // Here you can map the output to the corresponding labels and confidence levels
+    List<String> labels = ["Alternaria_Leaf_Spot", "Downy_Mildew", "Bacterial_Spot", "Healthy_Petchay", "Undefined"];
+    List<Map<String, dynamic>> results = [];
+     for (int i = 0; i < output[0].length; i++) {
+      results.add({
+        'label': labels[i],
+        'confidence': output[0][i],
+      });
+    }
+
+    return results;
+      // Map other outputs similarly
   }
 
   @override
@@ -262,38 +294,6 @@ class _CameraWidgetState extends State<ScannerPage> {
                         ],
                       ),
                     ),
-                    if (_recognitions1 != null &&
-                      _recognitions1![0]['label'] == 'Bacterial_Spot')
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      padding: EdgeInsets.all(10),
-                      color: Colors.grey[200],
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Recommendations for Bacterial Spot:",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            "1. Avoid overhead watering to minimize moisture on leaves.",
-                            style: TextStyle(fontSize: 15),
-                          ),
-                          Text(
-                            "2. Apply copper-based fungicide to affected plants.",
-                            style: TextStyle(fontSize: 15),
-                          ),
-                          Text(
-                            "3. Ensure proper plant spacing for adequate airflow.",
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        ],
-                      ),
-                    ),
                                       if (_recognitions1 != null &&
                       _recognitions1![0]['label'] == 'Healthy_Petchay')
                     Container(
@@ -372,13 +372,13 @@ class _CameraWidgetState extends State<ScannerPage> {
   @override
   void dispose() {
     // Dispose TFLite resources
-    Tflite.close();
+    _interpreter.close();
     super.dispose();
   }
 
   //@override
   void init() {
-    _initializeTflite();
+    _interpreter.close();
   }
 }
 
