@@ -1,4 +1,5 @@
 import 'package:bokchoydoctor/pages/AboutUs.dart';
+import 'package:bokchoydoctor/pages/FAQ.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -41,14 +42,28 @@ class _SettingsPage2State extends State<SettingsPage> {
                   ],
                 ),
                 const Divider(),
-                const _SingleSection(
+                 _SingleSection(
                   children: [
                     _CustomListTile(
-                        title: "Help & Feedback",
-                        icon: Icons.help_outline_rounded),
+                      title: "Help & Feedback",
+                      icon: Icons.help_outline_rounded,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => FAQ()),
+                        );
+                      },     
+                    ),
                     _CustomListTile(
-                        title: "About", icon: Icons.info_outline_rounded,
-                      ),
+                      title: "About", 
+                      icon: Icons.info_outline_rounded,          
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AboutUs()),
+                        );
+                      },          
+                    ),
                   ],
                 ),
               ],
@@ -60,12 +75,15 @@ class _SettingsPage2State extends State<SettingsPage> {
   }
 }
 
+
 class _CustomListTile extends StatelessWidget {
   final String title;
   final IconData icon;
   final Widget? trailing;
+  final VoidCallback? onTap;
+
   const _CustomListTile(
-      {Key? key, required this.title, required this.icon, this.trailing})
+      {Key? key, required this.title, required this.icon, this.trailing, this.onTap,})
       : super(key: key);
 
   @override
@@ -74,7 +92,7 @@ class _CustomListTile extends StatelessWidget {
       title: Text(title),
       leading: Icon(icon),
       trailing: trailing,
-      onTap: () {},
+      onTap: onTap,
     );
   }
 }
@@ -82,6 +100,7 @@ class _CustomListTile extends StatelessWidget {
 class _SingleSection extends StatelessWidget {
   final String? title;
   final List<Widget> children;
+
   const _SingleSection({
     Key? key,
     this.title,
@@ -96,11 +115,11 @@ class _SingleSection extends StatelessWidget {
       children: [
         if (title != null)
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const  EdgeInsets.all(8.0),
             child: Text(
               title!,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
+            ), 
           ),
         Column(
           children: children,

@@ -30,7 +30,7 @@ class HomeWidget extends StatelessWidget {
                       ),
                     ),
                     Image.asset(
-                      'assets/images/plant1.gif', // Path to local image asset
+                      'assets/images/plant1.jpg', // Path to local image asset
                       height: 350,
                       width: double.infinity,
                       fit: BoxFit.cover,

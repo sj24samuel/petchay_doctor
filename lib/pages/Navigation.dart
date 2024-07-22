@@ -70,7 +70,7 @@ class _HomepageState extends State<Navigation> {
                 Navigator.pop(context);
               },
             ),
-                        ListTile(
+            ListTile(
               leading: const Icon(Icons.calculate),
               title: const Text('Treatment Calculation'),
               onTap: () {

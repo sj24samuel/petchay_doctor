@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
 import 'dart:async';
 import 'dart:io';
+
+
 
 class ScannerPage extends StatefulWidget {
   const ScannerPage({Key? key}) : super(key: key);
@@ -24,6 +27,7 @@ class _CameraWidgetState extends State<ScannerPage> {
     _initializeTflite();
   }
 
+  
   Future<void> _initializeTflite() async {
     // Load the model and labels
     await Tflite.loadModel(
@@ -227,6 +231,38 @@ class _CameraWidgetState extends State<ScannerPage> {
                     ),
                   // Display recommendations card if the label is "Bacterial_Spot"
                   if (_recognitions1 != null &&
+                      _recognitions1![0]['label'] == 'Bacterial_Spot')
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      padding: EdgeInsets.all(10),
+                      color: Colors.grey[200],
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Recommendations for Bacterial Spot:",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            "1. Avoid overhead watering to minimize moisture on leaves.",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                          Text(
+                            "2. Apply copper-based fungicide to affected plants.",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                          Text(
+                            "3. Ensure proper plant spacing for adequate airflow.",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                    ),
+                    if (_recognitions1 != null &&
                       _recognitions1![0]['label'] == 'Bacterial_Spot')
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 10),
