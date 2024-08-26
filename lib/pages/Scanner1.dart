@@ -3,7 +3,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:tflite_v2/tflite_v2.dart';
+
 
 class Scanner1 extends StatefulWidget {
   const Scanner1({super.key});
@@ -17,13 +18,13 @@ class _Scanner1State extends State<Scanner1> {
   XFile? _pickedImage;
   List<dynamic>? _recognitions1;
   bool _isLoading = false;
-  late Interpreter _interpreter;
   
  
 
   @override
   void initState() {
     super.initState();
+    //_testconnect();
     _imagePicker = ImagePicker();
   }
 
@@ -37,7 +38,15 @@ class _Scanner1State extends State<Scanner1> {
         await _imagePicker.pickImage(source: ImageSource.camera);
   }
 
-
+  /*Future<void> _testconnect() async{
+    String? res = await Tflite.loadModel(
+      model: "assets/bokchoymodel.Tflite",
+      labels: "assets/petchay_labels.txt",
+      numThreads: 1,
+      isAsset: true,
+      useGpuDelegate: false
+    );
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +70,7 @@ class _Scanner1State extends State<Scanner1> {
 
             ElevatedButton.icon(
               onPressed: _pickImageFromCamera,
-              label: const Text("Upload Picture",
+              label: const Text("Take a Picture",
                 style: TextStyle(color: Colors.black)),
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(Colors.white),
@@ -75,7 +84,7 @@ class _Scanner1State extends State<Scanner1> {
 
             ElevatedButton.icon(
               onPressed: _pickImageFromGallery,
-               label: const Text("Select from Gallery",
+               label: const Text("Pick From Gallery",
                style: TextStyle(color: Colors.black)),
                style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all(Colors.white),
