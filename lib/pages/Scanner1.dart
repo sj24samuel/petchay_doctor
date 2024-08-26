@@ -30,15 +30,11 @@ class _Scanner1State extends State<Scanner1> {
   Future<void> _pickImageFromGallery() async {
     final XFile? pickedFile =
         await _imagePicker.pickImage(source: ImageSource.gallery);
-/*
-    if (pickedFile != null) {
-      setState(() {
-        _pickedImage = pickedFile;
-        _recognitions1 = null; // Clear previous recognitions
-        _isLoading = true;
-      });
-      await _processImage();
-    }*/
+  }
+
+  Future<void> _pickImageFromCamera() async{
+    final XFile? pickedFile =
+        await _imagePicker.pickImage(source: ImageSource.camera);
   }
 
 
@@ -64,8 +60,8 @@ class _Scanner1State extends State<Scanner1> {
             const SizedBox(height: 20), 
 
             ElevatedButton.icon(
-              onPressed: _pickImageFromGallery,
-              label: const Text("Select from Gallery",
+              onPressed: _pickImageFromCamera,
+              label: const Text("Upload Picture",
                 style: TextStyle(color: Colors.black)),
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(Colors.white),
@@ -79,7 +75,7 @@ class _Scanner1State extends State<Scanner1> {
 
             ElevatedButton.icon(
               onPressed: _pickImageFromGallery,
-               label: const Text("Upload Picture",
+               label: const Text("Select from Gallery",
                style: TextStyle(color: Colors.black)),
                style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all(Colors.white),
