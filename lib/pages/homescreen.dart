@@ -40,7 +40,7 @@ class HomeWidget extends StatelessWidget {
                       child: Container(
                         alignment: Alignment.center,
                         child: const Text(
-                          'Introducing "Petchay Doctor," your AI app companion designed to provide comprehensive assistance and guidance for all your gardening needs. With its advanced algorithms and vast knowledge base, Petchay Doctor offers personalized recommendations, tips, and solutions tailored to help you cultivate healthy and thriving bok choy plants. Say hello to your gardening partner, simplifying the journey to green thumbs and abundant harvests.',
+                          'Introducing "Pechay Doctor," your AI app companion designed to provide comprehensive assistance and guidance for all your gardening needs. With its advanced algorithms and vast knowledge base, Pechay Doctor offers personalized recommendations, tips, and solutions tailored to help you cultivate healthy and thriving bok choy plants. Say hello to your gardening partner, simplifying the journey to green thumbs and abundant harvests.',
                           style: TextStyle(fontSize: 16),
                           textAlign: TextAlign.justify,
                         ),

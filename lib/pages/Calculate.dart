@@ -147,7 +147,7 @@ class _CalculateState extends State<Calculate> {
                 //Pesticides calculator
                 SizedBox(height: 10),
                 Text('Pesticides Calculation', 
-                style: const TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 20, fontFamily: 'Arial'),
                  textAlign:TextAlign.center,
                  ),
                 TextField(

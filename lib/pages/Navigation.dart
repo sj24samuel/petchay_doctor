@@ -1,7 +1,7 @@
 import 'package:bokchoydoctor/pages/AboutUs.dart';
 import 'package:bokchoydoctor/pages/Calculate.dart';
 import 'package:bokchoydoctor/pages/FAQ.dart';
-import 'package:bokchoydoctor/pages/Scanner.dart';
+import 'package:bokchoydoctor/pages/Scanner1.dart';
 import 'package:bokchoydoctor/pages/SettingsPage.dart';
 import 'package:bokchoydoctor/pages/HomeScreen.dart';
 import 'package:flutter/material.dart';
@@ -21,13 +21,13 @@ class _HomepageState extends State<Navigation> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Petchay Doctor",
+          "Pechay Doctor",
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 27, 205, 255),
+        backgroundColor: Color.fromARGB(255, 98, 218, 18),
       ),
       drawer: Drawer(
         child: ListView(
@@ -42,9 +42,9 @@ class _HomepageState extends State<Navigation> {
               ),
               child: Center(
                 child: Text(
-                  'Petchay Doctor',
+                  'Pechay Doctor',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 35,
                   ),
                 ),
@@ -62,7 +62,7 @@ class _HomepageState extends State<Navigation> {
             ),
             ListTile(
               leading: const Icon(Icons.medical_information),
-              title: const Text('Petchay Doctor'),
+              title: const Text('Pechay Doctor Scanner'),
               onTap: () {
                 setState(() {
                   _page = 1;
@@ -122,7 +122,7 @@ class _HomepageState extends State<Navigation> {
       case 0:
         return const HomeWidget();
       case 1:
-        return const ScannerPage();
+        return const Scanner1();
       case 2:
         return const Calculate();
       case 3:
