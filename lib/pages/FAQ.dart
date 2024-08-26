@@ -37,7 +37,17 @@ class _FAQState extends State<FAQ> {
               QuestionWithAnswer(
                 question: 'Is this Reliable?',
                 answer:
-                    'Answer to question 3: This is a mock answer for question 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                    'Yes the app is Reliable'
+              ),
+              QuestionWithAnswer(
+                question: 'What are the diseases that the app can detect?',
+                answer:
+                    'The Disease that the app can detect are Altenaira Leaf Spot, Bacterial Spot, Downy Mildew and as well a Healthy Pechay Crop'
+              ),
+              QuestionWithAnswer(
+                question: 'What are the fertilizer/pesticides that the app recommends?',
+                answer:
+                    'The App recommends to use for pechay are only 4 types of fertilizer and as well pesticides'  
               ),
               // Add more questions here if needed
             ],

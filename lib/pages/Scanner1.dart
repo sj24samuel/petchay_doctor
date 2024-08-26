@@ -39,7 +39,7 @@ class _Scanner1State extends State<Scanner1> {
   }
 
   /*Future<void> _testconnect() async{
-    String? res = await Tflite.loadModel(
+     await Tflite.loadModel(
       model: "assets/bokchoymodel.Tflite",
       labels: "assets/petchay_labels.txt",
       numThreads: 1,
