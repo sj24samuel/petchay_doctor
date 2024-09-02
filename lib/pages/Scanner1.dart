@@ -3,7 +3,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
-import 'package:tflite_v2/tflite_v2.dart';
+import 'package:tflite/tflite.dart';
 
 
 class Scanner1 extends StatefulWidget {
@@ -24,7 +24,7 @@ class _Scanner1State extends State<Scanner1> {
   @override
   void initState() {
     super.initState();
-    //_testconnect();
+    _initializeTflite();
     _imagePicker = ImagePicker();
   }
 
@@ -38,15 +38,16 @@ class _Scanner1State extends State<Scanner1> {
         await _imagePicker.pickImage(source: ImageSource.camera);
   }
 
-  /*Future<void> _testconnect() async{
-     await Tflite.loadModel(
-      model: "assets/bokchoymodel.Tflite",
+  Future<void> _initializeTflite() async {
+    // Load the model and labels
+    await Tflite.loadModel(
+      model: "assets/bokchoymodel.tflite",
       labels: "assets/petchay_labels.txt",
-      numThreads: 1,
-      isAsset: true,
-      useGpuDelegate: false
+      numThreads: 1, // defaults to 1
+      isAsset: true, // defaults to true, set to false to load resources outside assets
+      useGpuDelegate: false // defaults to false, set to true to use GPU delegate
     );
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
