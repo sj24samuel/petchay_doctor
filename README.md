@@ -15,15 +15,8 @@
   <p align="center">
     Project Descriptions: 🕵🏽
     <br />
-    <a href="https://github.com/lightdarkmaster/petchay_doctor/releases/tag/Petchay_Doctor_v1.0.0"><strong>Download Petchay Doctor App Here.. »</strong></a>
+    <a href="https://github.com/sj24samuel/petchay_doctor.git"><strong>Download Petchay Doctor App Here.. »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/lightdarkmaster/">Light Dark Master 🧑🏽‍💻</a>
-    ·
-    <a href="https://www.facebook.com/ChanNotDiff/">Report Bug 🐞</a>
-    ·
-    <a href="https://www.facebook.com/ChanNotDiff/">Request Feature 🙋🏽‍♂️</a>
-    <br/>
 <br/>
     
 This project is a starting point for a Flutter application.
@@ -41,7 +34,7 @@ samples, guidance on mobile development, and a full API reference.
 
 # 🎊🎉🎊🎉🎊 W E L C O M E ! ! 🎊🎉🎊🎉🎊
 
-Pechay Doctor AI Mobile Application
+Selected Pechay Disease Detection and Recommender Application using Convolusion Neural Network for BPI as commonly know as Pechay Doctor
 > By: Team Zionist - Leyte Normal University (LNU)
 
 <!-- >> git log: 08d454faae3add1386e9caf47f5795886aea3034 -->
@@ -152,13 +145,13 @@ _For more examples, please refer to the [Documentation](https://flutter.dev/)_�
 
 - [ ] Homepage
   - [ ] App Descriptions
-- [ ] Petchay Doctor
-  - [ ] Detect Petchay Disease
-  - [ ] Provide Recommendations
+- [x] Scan my Pechay
+  - [x] Detect Petchay Disease
+  - [x] Provide Recommendations
 - [x] Treatment Calculation
   - [x] Provide data needed for Fertilizer and Pesticides
 - [x] FAQ
-  - [ ] Commonly Ask Questions
+  - [x] Commonly Ask Questions
 - [ ] Settings
   - [ ] Dark Mode
   - [ ] Notifications
@@ -166,7 +159,6 @@ _For more examples, please refer to the [Documentation](https://flutter.dev/)_�
   - [ ] Profile
   - [ ] Help and Feedbacks
   - [ ] About
-  - [ ] Sign out
 
 See the 👀 [open issues](https://github.com/sj24samuel/petchay_doctor/tree/master) for a full list of proposed features (and known issues).
 
@@ -192,9 +184,11 @@ Don't forget to give the project a star! Thanks again!
 
 
 ## Existing Issues
-1. Scanner Problem connection to the Model
-2. Update FAQ
-3. Add Details for the AboutUS
+1. Scanner Problem connection to the Model (FIXED 09-05-2024)
+  - The bug was fixed by changing from tflite to tflite_v2
+2. Update FAQ (Fixed)
+  - The question was been established
+3. Add Details for the About US
 
 
 # - - - - - - - N O T H I N G - - - -  F O L L O W S - - - - - - -
