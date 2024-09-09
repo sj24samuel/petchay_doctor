@@ -57,8 +57,8 @@ class _Scanner1State extends State<Scanner1> {
   Future<void> _initializeTflite() async {
     // Load the model and labels
     res = (await Tflite.loadModel(
-      model:"assets/bokchoymodel.tflite",
-      labels:"assets/petchay_labels.txt",
+      model: "assets/bokchoymodel.tflite",
+      labels: "assets/petchay_labels.txt",
     ))!;
     print(res);
 
