@@ -1,5 +1,6 @@
 import 'package:bokchoydoctor/pages/AboutUs.dart';
 import 'package:bokchoydoctor/pages/FAQ.dart';
+import 'package:bokchoydoctor/pages/Userprofile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -45,12 +46,12 @@ class _SettingsPage2State extends State<SettingsPage> {
                  _SingleSection(
                   children: [
                     _CustomListTile(
-                      title: "Help & Feedback",
+                      title: "My Profile",
                       icon: Icons.help_outline_rounded,
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => FAQ()),
+                          MaterialPageRoute(builder: (context) => Profileuser()),
                         );
                       },     
                     ),
@@ -64,6 +65,16 @@ class _SettingsPage2State extends State<SettingsPage> {
                         );
                       },          
                     ),
+                     _CustomListTile(
+                      title: "Help & Feedback", 
+                      icon: Icons.info_outline_rounded,          
+                      onTap: () {
+                       Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FAQ()),
+                       );
+                      },          
+                    ),
                   ],
                 ),
               ],
@@ -73,6 +84,9 @@ class _SettingsPage2State extends State<SettingsPage> {
       ),
     );
   }
+}
+
+ProfileUserPage() {
 }
 
 
