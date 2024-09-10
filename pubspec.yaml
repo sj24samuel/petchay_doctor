@@ -87,6 +87,7 @@ flutter:
    - assets/bokchoymodel.tflite
    - assets/petchay_labels.txt
    - assets/images/farmer-icegif-5.gif
+   - assets/images/default_user_profile_pic.png
    - assets/images/bokchoyt.gif
    - assets/images/plant1.jpg
    - assets/images/aboutus.gif

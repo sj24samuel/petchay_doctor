@@ -19,19 +19,22 @@ class _ProfileuserState extends State<Profileuser> {
             elevation: 4,
             margin: const EdgeInsets.all(16),
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
+                  Icon(Icons.account_box_outlined),
+                  Text(
                       "My Personal Information",
-                      style: TextStyle(fontSize: 40,),
+                      style: const TextStyle(fontSize: 20),
+
                     ),
+                    
                     //Profile Picture
                   const SizedBox(height: 20),
                   CircleAvatar(
                     radius: 80,
-                    backgroundImage: NetworkImage('assets/images/uploading.gif'),
+                    backgroundImage: NetworkImage('./assets/images/default_user_profile_pic.png'),
                   ),
                   //Name
                   const SizedBox(height: 20),

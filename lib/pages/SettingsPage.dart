@@ -47,7 +47,7 @@ class _SettingsPage2State extends State<SettingsPage> {
                   children: [
                     _CustomListTile(
                       title: "My Profile",
-                      icon: Icons.help_outline_rounded,
+                      icon: Icons.account_circle,
                       onTap: () {
                         Navigator.push(
                           context,
