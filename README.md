@@ -38,8 +38,6 @@ Selected Pechay Disease Detection and Recommender Application using Convolusion 
 > By: Team Zionist - Leyte Normal University (LNU)
 
 <!-- >> git log: 08d454faae3add1386e9caf47f5795886aea3034 -->
-> <br/>
-> <br/>
 
   </p>
 </div>
