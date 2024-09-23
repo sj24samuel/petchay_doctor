@@ -23,15 +23,15 @@ class _FAQState extends State<FAQ> {
                 fit: BoxFit.cover,
               ),
               QuestionWithAnswer(
-                question: 'How to use this App?',
+                question: 'What is this application about?',
                 answer:
-                    'Answer to question 1: This is a mock answer for question 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                    'This application is designed to detect common diseases in Pechay (Chinese cabbage) using image recognition powered by a Convolutional Neural Network (CNN). It provides users with accurate disease detection and suggests appropriate treatment options.',
               ),
               const SizedBox(height: 16),
               QuestionWithAnswer(
-                question: 'How can I calculate fertilizer?',
+                question: 'Who can use this application?',
                 answer:
-                    'Answer to question 2: This is a mock answer for question 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                    'The app is intended for farmers, agricultural experts, and plant industry professionals, especially those working with Pechay crops. It is also suitable for anyone seeking to monitor the health of their plants.',
               ),
               const SizedBox(height: 16),
               QuestionWithAnswer(
@@ -39,16 +39,56 @@ class _FAQState extends State<FAQ> {
                 answer:
                     'Yes the app is Reliable'
               ),
+              const SizedBox(height: 16),
               QuestionWithAnswer(
                 question: 'What are the diseases that the app can detect?',
                 answer:
                     'The Disease that the app can detect are Altenaira Leaf Spot, Bacterial Spot, Downy Mildew and as well a Healthy Pechay Crop'
               ),
+              const SizedBox(height: 16),
               QuestionWithAnswer(
-                question: 'What are the fertilizer/pesticides that the app recommends?',
+                question: 'How do I use the disease detection feature?  ',
                 answer:
-                    'The App recommends to use for pechay are only 4 types of fertilizer and as well pesticides'  
+                    'You simply need to take or upload a clear picture of the Pechay plant’s affected area. The app will analyze the image using its CNN model and return a diagnosis along with treatment recommendations.'  
               ),
+              const SizedBox(height: 16),
+              QuestionWithAnswer(
+                question: 'How accurate is the disease detection?',
+                answer:
+                    'The application uses a Convolutional Neural Network trained with a large dataset of Pechay disease images. Accuracy may vary based on the quality of the image and the disease, but the model has been trained to ensure high precision in detecting the most common diseases.'  
+              ),
+              const SizedBox(height: 16),
+              QuestionWithAnswer(
+                question: 'What kind of treatment recommendations does the app provide?',
+                answer:
+                    'Once the disease is identified, the app suggests effective and practical treatments. These may include the use of organic or chemical treatments, cultivation techniques, or environmental adjustments to help manage the disease.'
+              ),
+              const SizedBox(height: 16),
+              QuestionWithAnswer(
+                question: 'Can I use the app without an internet connection?',
+                answer:
+                    'Yes, the application is designed to work offline. The disease detection and treatment recommendation features are available without requiring an internet connection, allowing users in remote areas to utilize the app seamlessly.'
+              ),
+              const SizedBox(height: 16),
+              QuestionWithAnswer(
+                question: 'How can I ensure the app works optimally?',
+                answer:
+                    'Make sure to provide clear and well-lit images of the affected Pechay plant. Blurry or obstructed images may reduce the accuracy of detection.'
+              ),
+              const SizedBox(height: 16),
+              QuestionWithAnswer(
+                question: 'Is this app available for both Android and iOS?',
+                answer:
+                    'The app is currently available for Android users only. iOS support is not yet provided.'
+              ),
+              const SizedBox(height: 16),
+              QuestionWithAnswer(
+                question: 'Who developed this application?',
+                answer:
+                    'This app was developed by BSIT students from Leyte Normal University in collaboration with the Bureau of Plant Industry, using advanced machine learning techniques like Convolutional Neural Networks to enhance agricultural technology.'
+              ),
+              const SizedBox(height: 16),
+
               // Add more questions here if needed
             ],
           ),
