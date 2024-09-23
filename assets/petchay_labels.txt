@@ -1,5 +1,9 @@
 Alternaria_Leaf_Spot
-Bacterial_Spot
+Bacterial_Soft_Rot
+Black_Rot
 Downy_Mildew
-Healthy_Petchay
+Healthy_Pechay
+Leaf_Miner_Damage
+Pest
 Undefined
+Unknown disease
