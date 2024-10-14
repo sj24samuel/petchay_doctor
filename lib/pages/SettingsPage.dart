@@ -1,7 +1,6 @@
 import 'package:bokchoydoctor/pages/AboutUs.dart';
 import 'package:bokchoydoctor/pages/FAQ.dart';
 import 'package:bokchoydoctor/pages/Userprofile.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatefulWidget {

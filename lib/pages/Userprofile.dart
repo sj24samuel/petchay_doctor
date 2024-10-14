@@ -32,9 +32,11 @@ class _ProfileuserState extends State<Profileuser> {
                     
                     //Profile Picture
                   const SizedBox(height: 20),
-                  CircleAvatar(
-                    radius: 80,
-                    backgroundImage: NetworkImage('./assets/images/default_user_profile_pic.png'),
+                  Image.asset(
+                    'assets/images/user_profile/user-member-avatar-face-profile-icon-vector-22965342.jpg', // Path to your GIF image
+                    width: double.infinity,
+                    height: 200,
+                    fit: BoxFit.cover,
                   ),
                   //Name
                   const SizedBox(height: 20),

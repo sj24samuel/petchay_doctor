@@ -1,3 +1,4 @@
+import 'package:bokchoydoctor/pages/CameraScanner.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:io';
@@ -13,7 +14,7 @@ class Scanner1 extends StatefulWidget {
 }
 
 class _Scanner1State extends State<Scanner1> {
-   late ImagePicker _imagePicker;
+  late ImagePicker _imagePicker;
   XFile? _pickedImage;
   List<dynamic>? _recognitions1;
   bool _isLoading = false;
@@ -68,7 +69,7 @@ class _Scanner1State extends State<Scanner1> {
     if (_pickedImage != null) {
       final List<dynamic>? recognitions1 = await Tflite.runModelOnImage(
         path: _pickedImage!.path,
-        numResults: 5,
+        numResults: 10,
         threshold: 0.5,
       );
       // Update the recognitions
@@ -87,16 +88,53 @@ class _Scanner1State extends State<Scanner1> {
         mainAxisAlignment: MainAxisAlignment.center,
          children: <Widget>[
           const Text(
-            "Scan/Upload Seeds Here",
+            "Scan My Pechay",
             style: TextStyle(fontSize: 20),
           ),
           const SizedBox(height: 20),       
-          Image.asset(
+          if (!_isLoading) ...[
+            Image.asset(
               'assets/images/uploading.gif', // Path to your GIF image
               width: double.infinity,
               height: 200,
               fit: BoxFit.cover,
             ),
+            const SizedBox(height: 20),
+          ],
+          if (!_isLoading && _pickedImage != null)
+            Container(
+              width: 300,
+              height: 300,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+              ),
+              child: Image.file(
+                File(_pickedImage!.path),
+                fit: BoxFit.cover,
+              ),
+            )
+          else if (_isLoading)
+            const Center(
+              child: CircularProgressIndicator(),
+            )
+          else
+            Container(),            
+            const SizedBox(height: 20), 
+
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => CameraStream()));
+              },
+              label: const Text("Scan my Pechay",
+                style: TextStyle(color: Colors.black)),
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all(Colors.white),
+                  padding: WidgetStateProperty.all(
+                    const  EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  ),
+              )
+            ),
+
             const SizedBox(height: 20), 
 
             ElevatedButton.icon(
@@ -108,7 +146,7 @@ class _Scanner1State extends State<Scanner1> {
                   padding: WidgetStateProperty.all(
                     const  EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   ),
-             )
+              )
             ),
 
             const SizedBox(height: 20),
@@ -198,7 +236,7 @@ class _Scanner1State extends State<Scanner1> {
                     ),
                   // Display recommendations card if the label is "Bacterial_Spot"
                   if (_recognitions1 != null &&
-                      _recognitions1![0]['label'] == 'Bacterial_Spot')
+                      _recognitions1![0]['label'] == 'Bacterial_Soft_Rot')
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 10),
                       padding: EdgeInsets.all(10),
@@ -207,7 +245,7 @@ class _Scanner1State extends State<Scanner1> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Recommendations for Bacterial Spot:",
+                            "Recommendations for Bacterial Soft Rot:",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 15,
@@ -230,7 +268,7 @@ class _Scanner1State extends State<Scanner1> {
                       ),
                     ),
                                       if (_recognitions1 != null &&
-                      _recognitions1![0]['label'] == 'Healthy_Petchay')
+                      _recognitions1![0]['label'] == 'Healthy_Pechay')
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 10),
                       padding: EdgeInsets.all(10),
@@ -239,7 +277,7 @@ class _Scanner1State extends State<Scanner1> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Recommendations for Healthy Petchay:",
+                            "Recommendations for Healthy Pechay:",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 15,
@@ -297,7 +335,8 @@ class _Scanner1State extends State<Scanner1> {
               ),
             )
           else
-            Container(),
+            Container(
+            ),
          ],
       ),
 

@@ -61,169 +61,196 @@ class _CalculateState extends State<Calculate> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Calculate'),
+        title: Center( child: const Text('Treatment Calculation',
+          style: TextStyle(fontSize: 25,)
+        ),),
       ),
-      body: SingleChildScrollView(
+      body: Center(
         //height: 300, // Adjust the height as needed
-        child: Card(
-          elevation: 4,
-          margin: const EdgeInsets.all(16),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //Fertilizer
-                Text('Fertilizer Calculation', 
-                style: const TextStyle(fontSize: 20, fontFamily: 'Arial'),
-                 textAlign:TextAlign.center,
-                 ),
-                TextField(
-                  controller: _hectaresControllerf,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: 'Enter the Approximate Area to Apply Fertilizer in Hectares',
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card(
+                elevation: 4,
+                margin: const EdgeInsets.all(16),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      //Fertilizer
+                      Text('Fertilizer Calculation', 
+                      style: const TextStyle(fontSize: 20, fontFamily: 'Arial'),
+                      textAlign:TextAlign.center,
+                      ),
+                      TextField(
+                        controller: _hectaresControllerf,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          labelText: 'Enter Approx. Area in Hectares',
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      Text(
+                        'Fertilizer Type of Substance',
+                        style: const TextStyle(fontSize: 16),
+                        textAlign: TextAlign.center,
+                      ),
+                      //Radio Button
+                      ListTile(
+                        title: const Text('Urea'),
+                        leading: Radio<String>(
+                          value: 'Urea',
+                          groupValue: _SelectedFertilizer,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _SelectedFertilizer = value!;
+                            });
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        title: const Text('Complete'),
+                        leading: Radio<String>(
+                          value: 'Complete',
+                          groupValue: _SelectedFertilizer,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _SelectedFertilizer = value!;
+                            });
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        title: const Text('Ammonium Nitrate'),
+                        leading: Radio<String>(
+                          value: 'Ammonium Nitrate',
+                          groupValue: _SelectedFertilizer,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _SelectedFertilizer = value!;
+                            });
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: _calculatef,
+                        child: const Text('Calculate'),
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        _resultf,
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      Image.asset(
+                        'assets/images/calculate.gif', // Path to local image asset
+                        height: 250,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(height: 30),
-                Text(
-                  'Fertilizer Type of Substance',
-                  style: const TextStyle(fontSize: 16),
-                  textAlign: TextAlign.center,
-                ),
-                //Radio Button
-                ListTile(
-                  title: const Text('Urea'),
-                  leading: Radio<String>(
-                    value: 'Urea',
-                    groupValue: _SelectedFertilizer,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _SelectedFertilizer = value!;
-                      });
-                    },
+              ),
+              Card(
+                elevation: 4,
+                margin: const EdgeInsets.all(16),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      //Pesticides calculator
+                      SizedBox(height: 10),
+                      Text('Pesticides Calculation', 
+                      style: const TextStyle(fontSize: 20, fontFamily: 'Arial'),
+                      textAlign:TextAlign.center,
+                      ),
+                      TextField(
+                        controller: _hectaresControllerp,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          labelText: 'Enter Approx. Area in Hectares',
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Pesticide Substance',
+                        style: const TextStyle(fontSize: 16),
+                        textAlign: TextAlign.center,
+                      ),
+                      //Radio Pesticides
+                      ListTile(
+                        title: const Text('Metalaxyl'),
+                        leading: Radio<String>(
+                          value: 'Metalaxyl',
+                          groupValue: _SelcetedPesticide,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _SelcetedPesticide = value!;
+                            });
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        title: const Text('Mancozeb'),
+                        leading: Radio<String>(
+                          value: 'Mancozeb',
+                          groupValue: _SelcetedPesticide,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _SelcetedPesticide = value!;
+                            });
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        title: const Text('Lime'),
+                        leading: Radio<String>(
+                          value: 'Lime',
+                          groupValue: _SelcetedPesticide,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _SelcetedPesticide = value!;
+                            });
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        title: const Text('Chlorothalonil'),
+                        leading: Radio<String>(
+                          value: 'Chlorothalonil',
+                          groupValue: _SelcetedPesticide,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _SelcetedPesticide = value!;
+                            });
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: _calculatep,
+                        child: const Text('Calculate'),
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        _resultp,
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      Image.asset(
+                        'assets/images/calculate.gif', // Path to local image asset
+                        height: 250,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ],
                   ),
                 ),
-                ListTile(
-                  title: const Text('Complete'),
-                  leading: Radio<String>(
-                    value: 'Complete',
-                    groupValue: _SelectedFertilizer,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _SelectedFertilizer = value!;
-                      });
-                    },
-                  ),
-                ),
-                ListTile(
-                  title: const Text('Ammonium Nitrate'),
-                  leading: Radio<String>(
-                    value: 'Ammonium Nitrate',
-                    groupValue: _SelectedFertilizer,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _SelectedFertilizer = value!;
-                      });
-                    },
-                  ),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: _calculatef,
-                  child: const Text('Calculate'),
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  _resultf,
-                  style: const TextStyle(fontSize: 16),
-                ),
-                Image.asset(
-                  'assets/images/calculate.gif', // Path to local image asset
-                  height: 250,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-                //Pesticides calculator
-                SizedBox(height: 10),
-                Text('Pesticides Calculation', 
-                style: const TextStyle(fontSize: 20, fontFamily: 'Arial'),
-                 textAlign:TextAlign.center,
-                 ),
-                TextField(
-                  controller: _hectaresControllerp,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: 'Enter the Approximate Area to Apply Pesticides in Hectares',
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  'Pesticide Substance',
-                  style: const TextStyle(fontSize: 16),
-                  textAlign: TextAlign.center,
-                ),
-                //Radio Pesticides
-                ListTile(
-                  title: const Text('Metalaxyl'),
-                  leading: Radio<String>(
-                    value: 'Metalaxyl',
-                    groupValue: _SelcetedPesticide,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _SelcetedPesticide = value!;
-                      });
-                    },
-                  ),
-                ),
-                ListTile(
-                  title: const Text('Mancozeb'),
-                  leading: Radio<String>(
-                    value: 'Mancozeb',
-                    groupValue: _SelcetedPesticide,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _SelcetedPesticide = value!;
-                      });
-                    },
-                  ),
-                ),
-                ListTile(
-                  title: const Text('Lime'),
-                  leading: Radio<String>(
-                    value: 'Lime',
-                    groupValue: _SelcetedPesticide,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _SelcetedPesticide = value!;
-                      });
-                    },
-                  ),
-                ),
-                ListTile(
-                  title: const Text('Chlorothalonil'),
-                  leading: Radio<String>(
-                    value: 'Chlorothalonil',
-                    groupValue: _SelcetedPesticide,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _SelcetedPesticide = value!;
-                      });
-                    },
-                  ),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: _calculatep,
-                  child: const Text('Calculate'),
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  _resultp,
-                  style: const TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
